@@ -20,16 +20,16 @@ $factory->define(CodeAgenda\User::class, function (Faker\Generator $faker) {
 });
 */
 
-$factory->define(\CodeAgenda\Entities\Pessoa::class, function ($faker)
+$factory->define(\CodeAgenda\Entities\Pessoa::class, function (Faker\Generator $faker)
 {
     return [
-        'name' => $faker->name,
-        'apelido' => $faker->firstname,
-        'apelido' => $faker->randomElement(['F', 'M']),
+        'nome' => $faker->name,
+        'apelido' => $faker->firstName,
+        'sexo' => $faker->randomElement(['F', 'M']),
     ];
 });
 
-$factory->define(\CodeAgenda\Entities\Telefone::class, function($faker)
+$factory->define(\CodeAgenda\Entities\Telefone::class, function(Faker\Generator $faker)
 {
     return
     [

@@ -1,10 +1,13 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-try {
-    (new Dotenv\Dotenv(__DIR__.'/../'))->load();
-} catch (Dotenv\Exception\InvalidPathException $e) {
+try
+{
+    (new Dotenv\Dotenv(__DIR__ . '/../'))->load();
+}
+catch (Dotenv\Exception\InvalidPathException $e)
+{
     //
 }
 
@@ -19,9 +22,7 @@ try {
 |
 */
 
-$app = new Laravel\Lumen\Application(
-    realpath(__DIR__.'/../')
-);
+$app = new Laravel\Lumen\Application(realpath(__DIR__ . '/../'));
 
 $app->withFacades();
 
@@ -38,15 +39,9 @@ $app->withEloquent();
 |
 */
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    CodeAgenda\Exceptions\Handler::class
-);
+$app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, CodeAgenda\Exceptions\Handler::class);
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    CodeAgenda\Console\Kernel::class
-);
+$app->singleton(Illuminate\Contracts\Console\Kernel::class, CodeAgenda\Console\Kernel::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -59,9 +54,9 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([CodeAgenda\Http\Middleware\ExampleMiddleware::class,
+
+]);
 
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
@@ -78,7 +73,7 @@ $app->singleton(
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+$app->register(CodeAgenda\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
@@ -93,8 +88,9 @@ $app->singleton(
 |
 */
 
-$app->group(['namespace' => 'CodeAgenda\Http\Controllers'], function ($app) {
-    require __DIR__.'/../routes/web.php';
+$app->group(['namespace' => 'CodeAgenda\Http\Controllers'], function ($app)
+{
+    require __DIR__ . '/../routes/web.php';
 });
 
 return $app;

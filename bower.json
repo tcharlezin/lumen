@@ -1,0 +1,21 @@
+{
+  "name": "CodeAgenda",
+  "description": "Agenda Telefonica",
+  "main": "",
+  "authors": [
+    "Tcharles Silva <tcharlezin@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tcharlezin/lumne",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
